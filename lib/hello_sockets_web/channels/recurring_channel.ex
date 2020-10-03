@@ -18,7 +18,7 @@ defmodule HelloSocketsWeb.RecurringChannel do
     {:noreply, socket}
   end
 
-  defp new_token(socket = %{user_id: user_id}) do
+  defp new_token(socket = %{assigns: %{user_id: user_id}}) do
     Phoenix.Token.sign(socket, "salt identifier", user_id)
   end
 end
