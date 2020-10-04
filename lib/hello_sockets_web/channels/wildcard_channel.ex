@@ -16,9 +16,9 @@ defmodule HelloSocketsWeb.WildcardChannel do
   defp numbers_correct?(numbers) do
     numbers
     |> String.split(":")
-    |> Enum.map(&String.to_integer/1)
+    |> Enum.map(&Integer.parse/1)
     |> case do
-      [a, b] when b == a * 2 -> true
+      [{a, _}, {b, _}] when b == a * 2 -> true
       _ -> false
     end
   end
